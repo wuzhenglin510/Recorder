@@ -181,7 +181,7 @@ RandomKey.idx=0;
 		<button onclick="recreq()">请求权限测试</button>
 	</div>
 	<div class="pd btns">
-		<button onclick="recstart()">录制</button>
+		<button id="luzhi">录制</button>
 		<button onclick="recstop()">停止</button>
 	</div>
 	<div class="pd recpower">
@@ -258,6 +258,19 @@ window.onerror=function(message, url, lineNo, columnNo, error){
 
 
 <script>
+
+var obj = document.getElementById('luzhi');   
+obj.addEventListener('touchstart', function(event) {   
+     console.log(`touch start`)
+     recstart()
+}, false);
+
+obj.addEventListener('touchend', function(event) {   
+     console.log(`touch end`)
+     recstop()
+}, false);
+
+
 function baseSet(){
 	var alwaysUseWeixinJS=$(".alwaysUseWeixinJS")[0].checked;
 	if(!!RecordApp.alwaysUseWeixinJSPrev!=alwaysUseWeixinJS){
